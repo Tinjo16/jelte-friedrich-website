@@ -3,33 +3,34 @@
 // code bereitgestellt von ChatGPT
 // Letzte bearbeitung der Website, automatische Meta Tag erstellung für das derzeitige Datum
 
-async function setLastModifiedMeta() {
-    try {
-        const response = await fetch('../build-info.txt');
-        if (!response.ok) throw new Error("Datei nicht gefunden");
+        function setLastModifiedMeta() {
+            const now = new Date();
 
-        const lastModified = await response.text();
-        let metaTag = document.querySelector('meta[name="last-modified"]');
+            // Datum formatiert als YYYY-MM-DD HH:mm:ss
+            const formattedDate = now.toISOString().replace("T", " ").split(".")[0];
 
-        if (!metaTag) {
-            metaTag = document.createElement("meta");
-            metaTag.setAttribute("name", "last-modified");
+            let metaTag = document.querySelector('meta[name="last-modified"]');
 
-            const allMetaTags = document.head.querySelectorAll("meta");
-            if (allMetaTags.length > 0) {
-                allMetaTags[allMetaTags.length - 1].after(metaTag);
-            } else {
-                document.head.prepend(metaTag);
+            if (!metaTag) {
+                metaTag = document.createElement("meta");
+                metaTag.setAttribute("name", "last-modified");
+
+                // Füge es am Ende aller vorhandenen <meta>-Tags hinzu
+                const allMetaTags = document.head.querySelectorAll("meta");
+                if (allMetaTags.length > 0) {
+                    allMetaTags[allMetaTags.length - 1].after(metaTag);
+                } else {
+                    document.head.prepend(metaTag);
+                }
             }
+
+            metaTag.setAttribute("content", formattedDate);
+
+            console.log("Meta-Tag 'last-modified' wurde gesetzt:", formattedDate);
         }
 
-        metaTag.setAttribute("content", lastModified.trim());
-    } catch (error) {
-        console.error("Fehler beim Laden von build-info.txt:", error);
-    }
-}
-
-setLastModifiedMeta();
+        // Automatisch ausführen
+        setLastModifiedMeta();
 
 
 

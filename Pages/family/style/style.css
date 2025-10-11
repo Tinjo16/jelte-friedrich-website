@@ -1,0 +1,90 @@
+@charset "utf-8";
+
+
+/* Desktop */
+
+    /* all */
+
+        li, p, h1, h2, a, h3 {
+            font-family: "Signika_regular", Arial, Helvetica, sans-serif;
+            color: black;
+        }
+
+        html {
+            /* scroll-behavior: smooth; */
+            accent-color: #00D1FF;
+        }
+
+        /* CSS klassen */
+        
+            .flex { display: flex; }
+            .spacebetween { justify-content: space-between; }
+            .spacearound { justify-content: space-around; }
+            .aligncenter { align-self: center; }
+            .justconcenter { justify-content: center; }
+            .pad_lr2 { padding: 0 2%; }
+            .pad_lr5 { padding: 0 5%; }
+            .txtcenter { text-align: center; }
+
+
+            :root {
+                /* --bg: #rgb(125, 0, 125);
+                --txt-dark: #000;
+                --txt-light: #fff;
+                --focus-text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+                --focus-nav-shadow: 0 0 8px rgba(221, 0, 255, 0.6), 0 0 10px rgba(221, 0, 255, 0.8), 0 0 16px rgba(221, 0, 255, 1); */
+            }
+
+            body {
+                overflow-x: hidden;
+            }
+
+            h1 {
+                font-size: 3rem;
+                font-weight: 500;
+                text-align: center;
+            }
+
+            /* Header */
+
+                header {
+                    padding: 20px;
+                    display: flex;
+                }
+
+                header ul {
+                    display: flex;
+                    width: 100%;
+                    align-items: center;
+                    justify-content: space-evenly;
+                }
+
+                header ul li a {
+                    padding: 20px;
+                    text-decoration: none;
+                    font-size: 1.2rem;
+                }
+
+    /* Der Stör Home */
+
+        /* Header */
+
+            header > a {
+                height: fit-content;
+            }
+
+            .der_stör {
+                width: 16vw;
+                height: 100%;
+            }
+
+            .logo_title {
+                text-align: center;
+                font-size: 2vw;
+            }
+
+        /* Main */
+
+            main article {
+                margin-top: 5%;
+            }
